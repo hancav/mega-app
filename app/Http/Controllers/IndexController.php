@@ -1,17 +1,20 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use Debugbar;
+
 class IndexController extends Controller
 {
   /**
-  * Index method
+  * Home method
   *
   **/
   public function home(){
     // define view name
     $view = 'welcome';
     // debugbar
-    \Debugbar::info($view);
+    Debugbar::info($view);
     // return view
     return view($view);
   }
