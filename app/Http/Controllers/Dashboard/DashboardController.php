@@ -10,9 +10,9 @@ class DashboardController extends Controller
   * Home method
   *
   **/
-  public function home(){
+  public function index(){
     // define view name
-    $view = 'dashboard';
+    $view = 'templates.dashboard';
     // debugbar
     Debugbar::info($view);
     // return view
