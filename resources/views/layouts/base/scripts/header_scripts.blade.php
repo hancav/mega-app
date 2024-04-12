@@ -1,11 +1,10 @@
 {{--== Header Scripts ==--}}
 
-@section('header-scripts-rtp-jquery-min')
-  {{-- rtp jQuery min --}}
-  <script src="//www.rtp.pt/common/js/jquery.min.js"></script>
+@section('header-scripts-jquery-min')
+  {{-- local jQuery min --}}
+  <script src="{{ asset('js/vendor/jquery/jquery.min.js') }}"></script>
 @show
-@section('header-scripts-rtp-jquery-ui-min')
-  {{-- local jQuery-Ui min --}}
-  <script src="{{ asset('js/vendor/jquery-ui/jquery-ui.min.js') }}"></script>
+@section('header-scripts-jquery-ui-min')
+  {{-- local jQuery Ui min --}}
+  <script src="{{ asset('js/vendor/jquery/jquery-ui.min.js') }}"></script>
 @show
-
