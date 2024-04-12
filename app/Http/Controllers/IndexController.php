@@ -10,9 +10,9 @@ class IndexController extends Controller
   * Home method
   *
   **/
-  public function home(){
+  public function index(){
     // define view name
-    $view = 'welcome';
+    $view = 'templates.index';
     // debugbar
     Debugbar::info($view);
     // return view
