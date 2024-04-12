@@ -9,28 +9,19 @@
       <title>MS11</title>
     @show
 
-    @section('base-header-styles')
-    {{--  
-    @include('layouts.base.styles.header_styles')
-    @stack('header-styles') 
-    --}}
+    {{--     
+    @section('base-header-styles')  
+      @include('layouts.base.styles.header_styles')
+      @stack('header-styles') 
     @show
-    @section('base-header-scripts')
-      {{-- 
+    @section('base-header-scripts') 
       @include('layouts.base.scripts.header_scripts')
-      @stack('header-scripts') 
-      --}}
-    @show
-
+      @stack('header-scripts')  
+    @show 
+    --}}
   </head>
 
   <body class="@yield('body-classes')" itemscope itemtype="https://schema.org/WebPage">
-
-    @section('base-top-body-scripts')
-    {{-- 
-      @include('layouts.base.scripts.top_body_scripts')
-    --}}
-    @show
 
     <div id="@yield('id-base-type')" class="@yield('class-base-type')">
 
@@ -45,19 +36,17 @@
         @show
 
       </div>
-
-      @section('base-footer')
-        @include('layouts.base.footer.footer')
-      @show
+      {{-- add footer --}}
+      {{-- @section('base-footer') @include('layouts.base.footer.footer') @show --}}
 
     </div>
 
-    @section('base-footer-scripts')
     {{-- 
+    @section('base-footer-scripts')
       @include('layouts.base.scripts.footer_scripts')
       @stack('footer-scripts')
-    --}}
     @show
+    --}}
 
   </body>
 </html>
