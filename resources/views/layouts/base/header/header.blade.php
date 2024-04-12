@@ -2,19 +2,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<div class="navbar-rtp">
+<div class="navbar-ms11">
   <ul>
     <li>
-      <a class="logo-rtp show-mobile-inline" href="javascript:;" onclick="slideToggle()">
+      <a class="logo-ms11 show-mobile-inline" href="javascript:;" onclick="slideToggle()">
         {{-- add logo svg --}}
-        <i class="chevron-down-rtp"></i>
+        <i class="chevron-down-ms11"></i>
       </a>
-      <a class="logo-rtp show-desktop-inline" href="https://www.rtp.pt/" target="_blank">  
+      <a class="logo-ms11 show-desktop-inline" href="https://" target="_blank">  
          {{-- add logo svg --}}
-        <i class="chevron-down-rtp"></i>
+        <i class="chevron-down-ms11"></i>
       </a>
     <li>
-    <ul class="dropdown-rtp" id="dropdown-rtp">
+    <ul class="dropdown-ms11" id="dropdown-ms11">
       <li><a href="https://localhost" target="_blank">Link 1</a></li>
       <li><a href="https://localhost" target="_blank">Link 2</a></li>
       <li><a href="https://localhost" target="_blank">Link 3</a></li>
@@ -57,7 +57,7 @@ body{
   background-color: transparent !important;
 }
 
-.navbar-rtp{
+.navbar-ms11{
   width: 100%;
   background-color: #404040;
   font-family: 'Inter';
@@ -65,18 +65,18 @@ body{
   position: relative;
 }
 
-.navbar-rtp ul{
+.navbar-ms11 ul{
   position: relative;
   list-style: none;
   margin:0;
   padding: 0;
 }
 
-.navbar-rtp ul li{
+.navbar-ms11 ul li{
   display: inline-block;
 }
 
-.navbar-rtp .logo-rtp{
+.navbar-ms11 .logo-ms11{
   opacity: 0.5;
   position: relative;
   top:3px;
@@ -84,13 +84,13 @@ body{
   text-decoration:none;
 }
 
-.logo-rtp.show-mobile-inline{
+.logo-ms11.show-mobile-inline{
   padding:7.5px;
   top:0;
   margin:0;
 }
 
-.navbar-rtp .dropdown-rtp li a{
+.navbar-ms11 .dropdown-ms11 li a{
   font-size: 12px;
   font-weight: 500;
   padding: 10px;
@@ -101,12 +101,12 @@ body{
   opacity: 0.5;
 }
 
-.navbar-rtp .dropdown-rtp li a:hover,
-.navbar-rtp .logo-rtp:hover{
+.navbar-ms11 .dropdown-ms11 li a:hover,
+.navbar-ms11 .logo-ms11:hover{
   opacity: 0.8;
 }
 
-.chevron-down-rtp {
+.chevron-down-ms11 {
   box-sizing: border-box;
   position: relative;
   display: none;
@@ -118,7 +118,7 @@ body{
   top: -4px
 }
 
-.chevron-down-rtp::after {
+.chevron-down-ms11::after {
   content: "";
   display: block;
   box-sizing: border-box;
@@ -133,7 +133,7 @@ body{
   transition: transform 0.3s ease-in-out;
 }
 
-.chevron-down-rtp.rotate-chevron::after{
+.chevron-down-ms11.rotate-chevron::after{
   transform: rotate(-135deg);
 }
 
@@ -170,7 +170,7 @@ body{
 
 @media (min-width: 992px){
 
-  .dropdown-rtp{
+  .dropdown-ms11{
     display: block !important;
   }
 
@@ -191,11 +191,11 @@ body{
 
 @media (max-width: 991px){
 
-  .dropdown-rtp{
+  .dropdown-ms11{
     display: none;
   }
 
-  .navbar-rtp .dropdown-rtp{
+  .navbar-ms11 .dropdown-ms11{
     position: absolute;
     top: 35px;
     border-top: 1px solid #8D8D8D;
@@ -205,11 +205,11 @@ body{
     padding: 10px 0;
   }
 
-  .navbar-rtp ul li{
+  .navbar-ms11 ul li{
     display: block;
   }
 
-  .navbar-rtp .dropdown-rtp li a{
+  .navbar-ms11 .dropdown-ms11 li a{
     font-size: 22px;
     font-weight: 600;
     padding: 10px;
@@ -218,7 +218,7 @@ body{
     opacity: 0.8;
   }
 
-  .chevron-down-rtp{
+  .chevron-down-ms11{
     display: inline-block;
   }
 
@@ -338,10 +338,10 @@ body{
 <script>
   $(document).ready(function(){
   
-    $('.logo-rtp').click(function(){
+    $('.logo-ms11').click(function(){
       if ($(window).width() < 992) {
-        $('.dropdown-rtp').slideToggle();
-        $('.chevron-down-rtp').toggleClass('rotate-chevron');
+        $('.dropdown-ms11').slideToggle();
+        $('.chevron-down-ms11').toggleClass('rotate-chevron');
       }
     });
   

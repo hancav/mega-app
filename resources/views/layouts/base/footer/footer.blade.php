@@ -2,9 +2,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<div class="navbar-rtp">
+<div class="navbar-ms11">
   <ul>
-    <ul class="dropdown-rtp" id="dropdown-rtp">
+    <ul class="dropdown-ms11" id="dropdown-ms11">
       <li><a href="https://localhost" target="_blank">Link 1</a></li>
       <li><a href="https://localhost" target="_blank">Link 2</a></li>
       <li><a href="https://localhost" target="_blank">Link 3</a></li>
@@ -23,7 +23,7 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-.navbar-rtp{
+.navbar-ms11{
   width: 100%;
   background-color: #404040;
   font-family: 'Inter';
@@ -31,18 +31,18 @@ body{
   position: relative;
 }
 
-.navbar-rtp ul{
+.navbar-ms11 ul{
   position: relative;
   list-style: none;
   margin:0;
   padding: 0;
 }
 
-.navbar-rtp ul li{
+.navbar-ms11 ul li{
   display: inline-block;
 }
 
-.navbar-rtp .dropdown-rtp li a{
+.navbar-ms11 .dropdown-ms11 li a{
   font-size: 12px;
   font-weight: 500;
   padding: 10px;
@@ -55,7 +55,7 @@ body{
 
 @media (min-width: 992px){
 
-  .dropdown-rtp{
+  .dropdown-ms11{
     display: block !important;
   }
 
@@ -76,11 +76,11 @@ body{
 
 @media (max-width: 991px){
 
-  .dropdown-rtp{
+  .dropdown-ms11{
     display: none;
   }
 
-  .navbar-rtp .dropdown-rtp{
+  .navbar-ms11 .dropdown-ms11{
     position: absolute;
     top: 35px;
     border-top: 1px solid #8D8D8D;
@@ -90,11 +90,11 @@ body{
     padding: 10px 0;
   }
 
-  .navbar-rtp ul li{
+  .navbar-ms11 ul li{
     display: block;
   }
 
-  .navbar-rtp .dropdown-rtp li a{
+  .navbar-ms11 .dropdown-ms11 li a{
     font-size: 22px;
     font-weight: 600;
     padding: 10px;
