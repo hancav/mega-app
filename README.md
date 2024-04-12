@@ -19,17 +19,17 @@ List the key features and functionalities of your Mega Site. Highlight what make
 ## Installation
 Provide step-by-step instructions on how to install and set up your Mega Site. Include any dependencies or prerequisites.
 
-1 - composer install
-2 - ./vendor/bin/sail up -d
-3 - ./vendor/bin/sail artisan migrate:fresh --seed
-4 - ./vendor/bin/sail composer install 
-5 - ./vendor/bin/sail npm install 
-6 - ./vendor/bin/sail npm run build
-7 - ./vendor/bin/sail npm run dev
-8 - done - go to: http://localhost
-9 - extra - go to: http://localhost:8080/ and login as: sail:password to check db
+1  - composer install
+2  - ./vendor/bin/sail up -d
+3  - ./vendor/bin/sail artisan migrate:fresh --seed
+4  - ./vendor/bin/sail composer install 
+5  - ./vendor/bin/sail npm install 
+6  - ./vendor/bin/sail npm run build
+7  - ./vendor/bin/sail npm run dev
+8  - done - go to: http://localhost
+9  - extra - go to: http://localhost:8080/ and login as: sail:password to check db
 10 - extra - go to: http://localhost/register, register and login as admin
-11 - enjoy Mega Site
+11 - enjoy Mega Site ...
 
 
 ## Usage
