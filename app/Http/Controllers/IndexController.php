@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
 use Debugbar;
 
-class IndexController extends Controller
+final class IndexController extends Controller
 {
     /**
      * Home method
