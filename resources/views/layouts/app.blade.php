@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            @include('layouts.navigation')
+            {{-- @include('layouts.navigation') --}}
 
             <!-- Page Heading -->
             @if (isset($header))
@@ -32,5 +32,16 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireScriptConfig
+{{-- 
+        <script>   
+            window.onload = function () {
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+                if (timezone !== '{{ session()->get('timezone', 'UTC') }}') {
+                    axios.post('{{ route('profile.timezone.update') }}', { timezone })
+                }
+            }
+        </script>
+        --}}
     </body>
 </html>
