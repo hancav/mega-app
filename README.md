@@ -1,6 +1,6 @@
-# Mega Site Lar11
+# Mega Site
 
-Welcome to Mega Site! This project aims to build the most advanced next-generation, state-of-the-art website.
+Welcome to Mega Site (Laravel 11)! This project aims to build the most advanced next-generation, state-of-the-art website.
 
 ## Table of Contents
 - [Introduction](#introduction)
