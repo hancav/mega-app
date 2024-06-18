@@ -1,8 +1,11 @@
 {
-    "name": "trysys/mega-site-lar11",
+    "name": "hancav/mega-app",
     "type": "project",
-    "description": "The skeleton application for the Laravel Mega Site Lar11.",
-    "keywords": ["laravel", "framework"],
+    "description": "The skeleton application for Mega App.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
