@@ -22,7 +22,7 @@ final class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
 
         $isLocal = $this->app->environment('local');
 
-        Telescope::filter(function (IncomingEntry $entry) use ($isLocal) : bool {
+        Telescope::filter(function (IncomingEntry $entry) use ($isLocal): bool {
             if ($isLocal) {
                 return true;
             }
@@ -38,8 +38,19 @@ final class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
             if ($entry->isScheduledTask()) {
                 return true;
             }
+
             return $entry->hasMonitoredTag();
         });
+    }
+
+    /**
+     * Register the Telescope gate.
+     *
+     * This gate determines who can access Telescope in non-local environments.
+     */
+    protected function gate(): void
+    {
+        Gate::define('viewTelescope', fn ($user): bool => $user->email === 'admin@mail.com');
     }
 
     /**
@@ -58,15 +69,5 @@ final class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
             'x-csrf-token',
             'x-xsrf-token',
         ]);
-    }
-
-    /**
-     * Register the Telescope gate.
-     *
-     * This gate determines who can access Telescope in non-local environments.
-     */
-    protected function gate(): void
-    {
-        Gate::define('viewTelescope', fn($user): bool => $user->email == 'admin@mail.com');
     }
 }
