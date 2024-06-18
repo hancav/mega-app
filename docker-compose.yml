@@ -1,7 +1,6 @@
-version: '1'
 services:
     laravel.test:
-        container_name: mega-site-lar11
+        container_name: mega-app
         build:
             context: ./vendor/laravel/sail/runtimes/8.3
             dockerfile: Dockerfile
