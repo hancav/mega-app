@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
     @section('metadata')
-      <title>MS11</title>
+      <title>{{ config('app.name') }}</title>
     @show
 
     {{--     
