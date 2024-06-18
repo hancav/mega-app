@@ -1,8 +1,10 @@
 <?php
+
+declare(strict_types=1);
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\Dashboard\DashboardController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
