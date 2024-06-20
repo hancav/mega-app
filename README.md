@@ -33,6 +33,8 @@ List the key features and functionalities of your project. Highlight what makes 
     -   Run using docker
 -   Phpmyadmin: http://localhost:8080/
 -   MailHog: http://localhost:8025/
+-   Testing (test lint & test rector )
+    -   composer test
 
 ## Installation
 
