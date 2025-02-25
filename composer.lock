@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61ab19b4dd21bd5dd74e447cbfc8c710",
+    "content-hash": "42dfe00c07780b1dfe716b14c69398a3",
     "packages": [
         {
             "name": "brick/math",
@@ -635,80 +635,6 @@
                 }
             ],
             "time": "2023-10-12T05:21:21+00:00"
-        },
-        {
-            "name": "gloss-php/type-guard",
-            "version": "v0.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/pinkary-project/type-guard.git",
-                "reference": "b5511bd8d5567fba9dffca49d9da2c6c00c39434"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/pinkary-project/type-guard/zipball/b5511bd8d5567fba9dffca49d9da2c6c00c39434",
-                "reference": "b5511bd8d5567fba9dffca49d9da2c6c00c39434",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.2.0"
-            },
-            "require-dev": {
-                "laravel/pint": "^1.15.2",
-                "pestphp/pest": "^3.0.0",
-                "pestphp/pest-plugin-type-coverage": "3.x-dev",
-                "phpstan/phpstan": "^1.10.67",
-                "rector/rector": "^1.0.4",
-                "symfony/var-dumper": "^6.4.0|^7.0.6"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/Functions.php"
-                ],
-                "psr-4": {
-                    "PinkaryProject\\TypeGuard\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nuno Maduro",
-                    "email": "enunomaduro@gmail.com"
-                }
-            ],
-            "description": "Type Guard module is part of the Gloss PHP, and allows you to narrow down the type of an variable to a more specific type.",
-            "keywords": [
-                "assert",
-                "narrow",
-                "php",
-                "pinkary-project",
-                "type",
-                "type-guard"
-            ],
-            "support": {
-                "issues": "https://github.com/pinkary-project/type-guard/issues",
-                "source": "https://github.com/pinkary-project/type-guard/tree/v0.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/nunomaduro",
-                    "type": "patreon"
-                }
-            ],
-            "abandoned": "https://github.com/pinkary-project/type-guard",
-            "time": "2024-04-28T10:20:25+00:00"
         },
         {
             "name": "graham-campbell/result-type",
