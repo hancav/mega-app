@@ -12,7 +12,7 @@ final class IndexController extends Controller
      * Home method
      *
      **/
-    public function index(): void
+    public function index()
     {
         // define view name
         $view = 'templates.index';
