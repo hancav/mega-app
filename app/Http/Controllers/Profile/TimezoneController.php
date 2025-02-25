@@ -17,7 +17,7 @@ final readonly class TimezoneController
         $validated = $request->validate([
             'timezone' => ['required', 'string', 'max:255', new ValidTimezone],
         ]);
-       dump($validated);
+        dump($validated);
 
         $request->session()->put('timezone', $validated['timezone']);
     }

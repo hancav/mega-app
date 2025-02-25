@@ -24,7 +24,7 @@ final class PasswordController extends Controller
 
         $user = $request->user();
 
-        if (!$user) {
+        if (! $user) {
             return redirect()->route('login');
         }
 

@@ -18,7 +18,7 @@ final class EmailVerificationPromptController extends Controller
     {
         $user = $request->user();
 
-        if (!$user) {
+        if (! $user) {
             return redirect()->route('login');
         }
 
