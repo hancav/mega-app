@@ -13,7 +13,7 @@ final class DashboardController extends Controller
      * Home method
      *
      **/
-    public function index(): void
+    public function index(): \Illuminate\View\View
     {
         // define view name
         $view = 'templates.dashboard';

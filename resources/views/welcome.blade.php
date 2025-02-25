@@ -1,166 +1,138 @@
-@dd(1)
-<x-welcome-layout>
-    <div class="relative flex justify-center">
-        <div class="absolute -top-48 -z-10 size-[400px] -rotate-45 rounded-full bg-gradient-to-br from-indigo-300 via-rose-200 to-green-600 opacity-70 blur-3xl lg:size-[500px]"></div>
-    </div>
-    <nav class="fixed top-0 z-20 flex w-full justify-end gap-2 border-b border-slate-200/10 bg-slate-950/20 p-4 shadow-2xl backdrop-blur-md">
-        @auth
-            <a href="{{ route('profile.show', ['username' => auth()->user()->username]) }}" wire:navigate>
-                <x-primary-button>Your Profile</x-primary-button>
-            </a>
-        @else
-            <a href="{{ route('home.feed') }}" wire:navigate>
-                <x-primary-colorless-button class="flex items-center justify-center gap-2">
-                    <x-icons.home class="h-4 w-4" />
-                    <span class="sr-only sm:not-sr-only">Feed</span>
-                </x-primary-colorless-button>
-            </a>
-            <a href="{{ route('login') }}" wire:navigate>
-                <x-primary-button>Log In</x-primary-button>
-            </a>
-            <a href="{{ route('register') }}" wire:navigate>
-                <x-primary-button>Register</x-primary-button>
-            </a>
-        @endauth
-    </nav>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <main class="my-8 flex w-full flex-1 flex-col items-center justify-center gap-8 overflow-x-hidden p-4 pb-12">
-        <section class="mt-24 flex flex-col items-center">
-            <a href="{{ route('welcome') }}" wire:navigate>
-                <x-pinkary-logo class="z-10 w-72" />
-            </a>
+        <title>Laravel</title>
 
-            <div
-                class="mt-5 rounded-full bg-pink-500 bg-opacity-90 px-3 py-1.5 font-mona text-sm font-medium uppercase text-slate-900"
-                style="font-stretch: 120%"
-            >
-                One link. All your socials.
-            </div>
-        </section>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-        <h2 class="mt-12 max-w-4xl text-center font-mona text-3xl font-light md:text-4xl" style="font-stretch: 120%">
-            Create a landing page for all your links and connect with like-minded people
-            <span class="text-pink-500">without the noise</span>
-            .
-        </h2>
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="antialiased">
+        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+            @if (Route::has('login'))
+                <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
+                    @auth
+                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                    @else
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-        <section class="mt-28 w-full max-w-2xl">
-            <div class="grid w-full gap-4 md:grid-cols-2">
-                <div class="rounded-2xl border-t border-slate-800 bg-slate-900 p-4 transition-colors md:aspect-video">
-                    <div class="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-950">
-                        <x-icons.bolt class="h-5 w-5" />
-                    </div>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
 
-                    <h3>Create a profile</h3>
-                    <p class="text-slate-400">Choose a username, add a bio, and you're good to go.</p>
+            <div class="max-w-7xl mx-auto p-6 lg:p-8">
+                <div class="flex justify-center">
+                    <svg viewBox="0 0 62 65" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-red-500">
+                        <path d="M61.8548 14.6253C61.8778 14.7102 61.8895 14.7978 61.8897 14.8858V28.5615C61.8898 28.737 61.8434 28.9095 61.7554 29.0614C61.6675 29.2132 61.5409 29.3392 61.3887 29.4265L49.9104 36.0351V49.1337C49.9104 49.4902 49.7209 49.8192 49.4118 49.9987L25.4519 63.7916C25.3971 63.8227 25.3372 63.8427 25.2774 63.8639C25.255 63.8714 25.2338 63.8851 25.2101 63.8913C25.0426 63.9354 24.8666 63.9354 24.6991 63.8913C24.6716 63.8838 24.6467 63.8689 24.6205 63.8589C24.5657 63.8389 24.5084 63.8215 24.456 63.7916L0.501061 49.9987C0.348882 49.9113 0.222437 49.7853 0.134469 49.6334C0.0465019 49.4816 0.000120578 49.3092 0 49.1337L0 8.10652C0 8.01678 0.0124642 7.92953 0.0348998 7.84477C0.0423783 7.8161 0.0598282 7.78993 0.0697995 7.76126C0.0884958 7.70891 0.105946 7.65531 0.133367 7.6067C0.152063 7.5743 0.179485 7.54812 0.20192 7.51821C0.230588 7.47832 0.256763 7.43719 0.290416 7.40229C0.319084 7.37362 0.356476 7.35243 0.388883 7.32751C0.425029 7.29759 0.457436 7.26518 0.498568 7.2415L12.4779 0.345059C12.6296 0.257786 12.8015 0.211853 12.9765 0.211853C13.1515 0.211853 13.3234 0.257786 13.475 0.345059L25.4531 7.2415H25.4556L25.4531 7.2415C25.4901 7.26062 25.523 7.28304 25.5542 7.30718C25.6287 7.35771 25.6881 7.41825 25.7328 7.48598C25.7675 7.53951 25.7954 7.59843 25.8154 7.65961C25.8318 7.70851 25.8453 7.75961 25.8558 7.81067C25.8696 7.87721 25.8791 7.94492 25.8841 8.01367C25.8866 8.04453 25.8879 8.07543 25.8879 8.10652V33.7317L35.5769 28.3774V14.8858C35.5769 14.7978 35.5876 14.7102 35.6106 14.6253C35.6195 14.5954 35.6312 14.5672 35.6435 14.5398C35.6578 14.5036 35.674 14.4681 35.6926 14.4339C35.7163 14.3916 35.7423 14.3513 35.7706 14.3136C35.8904 14.1659 36.0531 14.0467 36.2424 13.9716C36.2611 13.9645 36.2809 13.959 36.3001 13.9519L48.2773 7.05599C48.429 6.96871 48.6009 6.92278 48.7759 6.92278C48.9509 6.92278 49.1228 6.96871 49.2744 7.05599L61.2517 13.9519C61.2718 13.9590 61.2913 13.9645 61.3097 13.9716C61.499 14.0467 61.6617 14.1659 61.7815 14.3136C61.8099 14.3513 61.8359 14.3916 61.8595 14.4339C61.8782 14.4681 61.8944 14.5036 61.9086 14.5398C61.9211 14.5672 61.9327 14.5954 61.9416 14.6253H61.8548Z" fill="currentColor"/>
+                    </svg>
                 </div>
 
-                <div class="rounded-2xl border-t border-slate-800 bg-slate-900 p-4 md:aspect-video">
-                    <div class="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-950">
-                        <x-icons.link class="h-5 w-5" />
-                    </div>
+                <div class="mt-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                        <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                            <div>
+                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                                    </svg>
+                                </div>
 
-                    <h3>Share your links</h3>
-                    <p class="text-slate-400">Collect links of your social profiles, your work, and what matters to you.</p>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Documentation</h2>
+
+                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience, we recommend reading our documentation from beginning to end.
+                                </p>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                            </svg>
+                        </a>
+
+                        <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                            <div>
+                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
+                                        <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
+                                    </svg>
+                                </div>
+
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laracasts</h2>
+
+                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
+                                </p>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                            </svg>
+                        </a>
+
+                        <a href="https://laravel-news.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                            <div>
+                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                                    </svg>
+                                </div>
+
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Laravel News</h2>
+
+                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
+                                </p>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="self-center shrink-0 stroke-red-500 w-6 h-6 mx-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                            </svg>
+                        </a>
+
+                        <div class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                            <div>
+                                <div class="h-16 w-16 bg-red-50 dark:bg-red-800/20 flex items-center justify-center rounded-full">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-7 h-7 stroke-red-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.19l.319 1.913A6 6 0 008.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 002.288-4.042 1.087 1.087 0 00-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 01-.98-.314l-.295-.295a1.125 1.125 0 010-1.591l.13-.132a1.125 1.125 0 011.3-.21l.603.302a.809.809 0 001.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 001.528-1.732l.146-.292M6.115 5.19A9 9 0 1017.18 4.64M6.115 5.19A8.965 8.965 0 0112 3c1.929 0 3.716.607 5.18 1.64" />
+                                    </svg>
+                                </div>
+
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</h2>
+
+                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Forge</a>, <a href="https://vapor.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Vapor</a>, <a href="https://nova.laravel.com" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Nova</a>, and <a href="https://envoyer.io" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Telescope</a>, and more.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="rounded-2xl border-t border-slate-800 bg-slate-900 p-4 md:aspect-video">
-                    <div class="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-950">
-                        <x-icons.chat-bubble class="h-5 w-5" />
+                <div class="flex justify-center mt-16 px-0 sm:items-center sm:justify-between">
+                    <div class="text-center text-sm text-gray-500 dark:text-gray-400 sm:text-left">
+                        <div class="flex items-center gap-4">
+                            <a href="https://github.com/sponsors/taylorotwell" class="group inline-flex items-center hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="-mt-px mr-1 w-5 h-5 stroke-gray-400 dark:stroke-gray-600 group-hover:stroke-gray-600 dark:group-hover:stroke-gray-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
+                                Sponsor
+                            </a>
+                        </div>
                     </div>
 
-                    <h3>Ask and answer questions</h3>
-                    <p class="text-slate-400">Engage with the community in an open and friendly way.</p>
-                </div>
-
-                <div class="rounded-2xl border-t border-slate-800 bg-slate-900 p-4 md:aspect-video">
-                    <div class="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-950">
-                        <x-icons.globe class="h-5 w-5" />
+                    <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
+                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
-
-                    <h3>Discover</h3>
-                    <p class="text-slate-400">keep an eye on the people you admire, and expand your circle.</p>
                 </div>
             </div>
-        </section>
-
-        <section class="relative mt-20 grid w-full max-w-2xl grid-cols-1 place-items-center gap-2 md:grid-cols-2">
-            <div class="absolute -left-20 top-0 h-56 w-56 rounded-full bg-gradient-to-r from-teal-500 via-transparent to-emerald-300 blur-3xl"></div>
-
-            <div class="z-10 order-2 mt-10 w-full max-w-sm md:order-1 md:mt-0">
-                <livewire:home.users />
-            </div>
-
-            <div class="order-1 flex cursor-pointer flex-col items-center justify-center transition-transform duration-700 sm:max-w-md md:order-2 md:-translate-y-10 md:translate-x-10 md:items-start md:hover:-translate-y-5 md:hover:translate-x-5">
-                <h2 class="mb-2 w-full font-semibold">Lots of interesting profiles.</h2>
-                <p class="text-slate-400">On pinkary you can find old friends or meet new interesting profiles.</p>
-                <svg class="ml-16 mt-10 hidden h-auto w-24 -rotate-45 md:block" viewBox="0 0 251 81" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_3_230)"><path d="M14.4435 26.0257C16.3478 34.2205 18.0405 42.2052 20.1564 51.2405C14.6551 50.6101 11.4813 47.2481 10.2118 43.4659C6.40317 32.1193 2.80615 20.5625 0.267089 8.79558C-1.21404 2.07164 3.65251 -1.50048 10.2118 0.600755C21.2144 3.96273 32.0054 7.95508 43.0081 11.7373C43.6428 11.9474 44.4892 12.1576 44.7008 12.5778C45.7587 14.0487 46.3935 15.7296 47.2398 17.4106C45.7587 18.041 44.2776 19.5119 43.0081 19.3017C38.5647 18.6714 34.3329 17.6208 30.1011 16.7803C27.7737 16.36 25.6577 15.7297 22.2723 16.7803C24.5998 19.3018 26.9273 22.0333 29.2548 24.5548C79.6129 74.5642 155.15 85.0703 217.781 51.2405C225.821 46.8279 233.227 41.5748 241.055 36.742C243.806 35.061 246.557 33.5901 249.307 31.9092C249.942 32.3294 250.365 32.9598 251 33.38C250.365 35.2711 250.154 37.7926 248.673 39.0533C244.018 43.4659 239.363 47.8785 234.073 51.6607C181.599 89.4829 108.601 90.9538 52.1064 54.8126C41.3154 47.8785 31.7938 39.0533 21.8492 31.0686C19.7333 29.3876 18.0406 27.4966 16.1363 25.6054C15.7131 25.3953 15.0783 25.6054 14.4435 26.0257Z" fill="currentColor"></path></g>
-                </svg>
-                <svg class="-ml-12 mt-12 h-auto w-16 rotate-90 md:hidden" viewBox="0 0 193 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M173.928 21.1292C115.811 44.9386 58.751 45.774 0 26.1417C4.22669 21.7558 7.81938 23.4266 10.5667 24.262C31.7002 29.9011 53.4676 30.5277 75.0238 31.3631C106.09 32.6162 135.465 25.5151 164.207 14.0282C165.475 13.6104 166.532 12.775 169.068 11.1042C154.486 8.18025 139.903 13.1928 127.223 7.34485C127.435 6.50944 127.435 5.46513 127.646 4.62971C137.156 4.00315 146.877 3.37658 156.388 2.54117C165.898 1.70575 175.196 0.661517 184.706 0.0349538C191.68 -0.382755 194.639 2.9589 192.103 9.22453C188.933 17.3698 184.495 24.8886 180.48 32.6162C180.057 33.4516 179.423 34.4959 178.578 34.9136C176.253 35.749 173.928 35.9579 171.392 36.5845C170.97 34.4959 169.913 32.1985 170.124 30.3188C170.547 27.8126 172.026 25.724 173.928 21.1292Z" fill="currentColor"></path>
-                </svg>
-            </div>
-        </section>
-
-        <section class="relative mt-20 flex w-full max-w-3xl flex-col place-items-center gap-2 md:flex-row">
-            <div class="absolute -right-20 top-0 -z-10 h-56 w-56 rotate-180 rounded-full bg-gradient-to-r from-teal-500 via-transparent to-emerald-300 blur-3xl"></div>
-
-            <div class="flex cursor-pointer flex-col items-center justify-center text-left transition-transform duration-700 sm:max-w-md md:-translate-x-10 md:-translate-y-10 md:items-end md:text-right md:hover:-translate-x-5 md:hover:-translate-y-5">
-                <h2 class="mb-2 w-full font-semibold">Any questions or thanks?</h2>
-                <p class="w-full text-slate-400">Pinkary has a simple and direct way to communicate, even anonymously.</p>
-
-                <svg class="mr-16 mt-12 hidden h-auto w-20 rotate-45 md:block" viewBox="0 0 220 87" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.17247 25.8421C5.28745 28.1788 7.82542 30.0907 9.7289 32.6399C26.0142 55.3699 49.279 66.6287 75.0817 72.7892C83.9646 74.9135 94.1165 74.7011 103.211 72.7892C129.225 67.6909 152.913 56.8569 173.428 39.8625C179.35 34.9766 184.426 28.8161 188.656 21.8059C186.33 22.6556 183.792 23.5054 181.465 24.5675C174.697 27.5415 167.929 30.728 160.95 33.2772C157.989 34.3393 154.393 34.3393 151.009 34.1269C149.74 34.1269 147.837 32.215 147.625 30.9404C147.414 29.6658 148.683 27.3291 149.74 27.1167C167.718 21.5935 183.369 10.972 199.654 1.83746C205.364 -1.34899 208.96 -0.49927 211.498 5.23635C217.631 19.4692 220.381 34.5517 219.958 50.0592C219.958 50.484 219.112 51.1213 217.843 52.3959C205.364 47.7224 209.171 34.1269 203.038 23.2929C201.557 25.8421 200.5 27.9664 199.231 29.6658C172.582 62.5926 137.262 80.0118 96.2315 86.3848C90.0981 87.4469 83.3301 87.022 76.9852 85.9599C53.7205 81.9237 32.9937 72.1519 15.8623 55.7948C10.3634 50.484 6.34493 43.4738 2.32647 36.8885C0.634492 34.3393 0.634494 30.728 0 27.754C1.05749 27.1167 2.11498 26.4794 3.17247 25.8421Z" fill="currentColor"></path>
-                </svg>
-                <svg class="-ml-12 mt-12 h-auto w-16 rotate-90 md:hidden" viewBox="0 0 193 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M173.928 21.1292C115.811 44.9386 58.751 45.774 0 26.1417C4.22669 21.7558 7.81938 23.4266 10.5667 24.262C31.7002 29.9011 53.4676 30.5277 75.0238 31.3631C106.09 32.6162 135.465 25.5151 164.207 14.0282C165.475 13.6104 166.532 12.775 169.068 11.1042C154.486 8.18025 139.903 13.1928 127.223 7.34485C127.435 6.50944 127.435 5.46513 127.646 4.62971C137.156 4.00315 146.877 3.37658 156.388 2.54117C165.898 1.70575 175.196 0.661517 184.706 0.0349538C191.68 -0.382755 194.639 2.9589 192.103 9.22453C188.933 17.3698 184.495 24.8886 180.48 32.6162C180.057 33.4516 179.423 34.4959 178.578 34.9136C176.253 35.749 173.928 35.9579 171.392 36.5845C170.97 34.4959 169.913 32.1985 170.124 30.3188C170.547 27.8126 172.026 25.724 173.928 21.1292Z" fill="currentColor"></path>
-                </svg>
-            </div>
-
-            <div id="answers" class="mt-10 flex w-full flex-col gap-8 sm:max-w-md md:mt-0">
-                @if ($question = App\Models\Question::find('9b7fd5db-76a5-4533-910b-ad5590ed6124'))
-                    <livewire:questions.show :questionId="$question->id" />
-                @endif
-
-                @if ($question = App\Models\Question::find('9b6e38c2-15db-4cd0-a0d7-3a300e877296'))
-                    <livewire:questions.show :questionId="$question->id" />
-                @endif
-
-                @if ($question = App\Models\Question::find('9b899451-e4cc-494d-aa19-cf16e66f52f6'))
-                    <livewire:questions.show :questionId="$question->id" />
-                    <livewire:questions.show :questionId="$question->id" />
-                @endif
-            </div>
-        </section>
-
-        <div class="mt-28 flex max-w-2xl flex-col items-center gap-4 py-4 text-2xl font-light">
-            <div class="animate-pulse">
-                <x-icons.light-bulb class="h-8 w-8" />
-            </div>
-
-            <h2 class="text-center">
-                Pinkary is now open-source! You can get early access by
-                <a href="https://github.com/sponsors/nunomaduro" target="_blank" class="underline hover:no-underline">
-                    sponsoring the project on GitHub
-                </a>
-                .
-            </h2>
         </div>
-
-        <section class="mb-16 mt-40 flex flex-col items-center gap-8">
-            @auth
-                <h3 class="mb-4 w-full max-w-2xl text-center font-mona text-3xl font-light md:text-4xl" style="font-stretch: 120%">
-                    Thank you for being part of this community!
-                </h3>
-            @else
-                <h3 class="mb-4 w-full max-w-2xl text-center text-4xl font-light" style="font-stretch: 120%">
-                    <a href="{{ route('register') }}" wire:navigate class="underline hover:no-underline">Join</a>
-                    this growing community!
-                </h3>
-            @endauth
-
-            <livewire:welcome-users-avatars lazy />
-        </section>
-    </main>
-</x-welcome-layout>
+    </body>
+</html>
