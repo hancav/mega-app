@@ -41,7 +41,7 @@
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                             </span>
                             <p class="text-lg text-gray-600 dark:text-gray-400">
-                                Welcome to your application
+                                Welcome to {{ config('app.name', 'Laravel') }}
                             </p>
                         </div>
                     </div>
