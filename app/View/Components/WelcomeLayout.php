@@ -16,4 +16,4 @@ final class WelcomeLayout extends Component
     {
         return view('layouts.welcome');
     }
-} 
+}

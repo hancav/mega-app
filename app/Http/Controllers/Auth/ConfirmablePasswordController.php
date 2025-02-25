@@ -29,7 +29,7 @@ final class ConfirmablePasswordController extends Controller
         $user = $request->user();
 
         // Check if the user is authenticated
-        if (!$user) {
+        if (! $user) {
             return redirect()->route('login');
         }
 
