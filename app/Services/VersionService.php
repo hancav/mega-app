@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 
 final class VersionService
 {
-    private const VERSION_FILE = 'VERSION';
+    private const string VERSION_FILE = 'VERSION';
 
     /**
      * Get the current application version
@@ -42,7 +42,7 @@ final class VersionService
             File::put(base_path(self::VERSION_FILE), $version);
 
             return true;
-        } catch (Exception $e) {
+        } catch (Exception) {
             return false;
         }
     }
