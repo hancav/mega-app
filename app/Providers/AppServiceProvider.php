@@ -14,9 +14,8 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
-        $this->app->singleton(VersionService::class, function () {
-            return new VersionService();
+        $this->app->singleton('services', function ($app) { 
+            return new \App\Services\VersionService();  
         });
     }
 

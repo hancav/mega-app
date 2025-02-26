@@ -18,7 +18,7 @@ final class IndexController extends Controller
         // define view name
         $view = 'welcome';
         // debugbar
-        $version = app(VersionService::class)->getCurrentVersion();
+        $version = app('services')->getCurrentVersion();
         Debugbar::info('Version: '.$version);
         // return view
         return view($view);
