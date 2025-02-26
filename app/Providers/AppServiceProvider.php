@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Services\VersionService;
 
 final class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,9 @@ final class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         //
+        $this->app->singleton(VersionService::class, function () {
+            return new VersionService();
+        });
     }
 
     /**
