@@ -125,4 +125,7 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'staging_username' => env('STAGING_USERNAME', 'staging'),
+    'staging_password' => env('STAGING_PASSWORD', 'password'),
+
 ];
