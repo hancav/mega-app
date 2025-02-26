@@ -19,7 +19,9 @@ final class IndexController extends Controller
         $view = 'welcome';
         // debugbar
         $version = app('services')->getCurrentVersion();
-        Debugbar::info('Version: '.$version);
+        if (config('app.env') === 'local') {
+            Debugbar::info('Version: '.$version);
+        }
         // return view
         return view($view);
     }
