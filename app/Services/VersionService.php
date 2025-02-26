@@ -4,22 +4,24 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use Exception;
 use Illuminate\Support\Facades\File;
 
 final class VersionService
 {
     private const VERSION_FILE = 'VERSION';
-    
+
     /**
      * Get the current application version
      */
     public function getCurrentVersion(): string
     {
-        if (!File::exists(base_path(self::VERSION_FILE))) {
+        if (! File::exists(base_path(self::VERSION_FILE))) {
             return 'unknown';
         }
 
         $version = File::get(base_path(self::VERSION_FILE));
+
         return trim($version);
     }
 
@@ -38,9 +40,10 @@ final class VersionService
     {
         try {
             File::put(base_path(self::VERSION_FILE), $version);
+
             return true;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return false;
         }
     }
-} 
+}

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use Debugbar;
-use App\Services\VersionService;
 
 final class IndexController extends Controller
 {
@@ -19,6 +18,7 @@ final class IndexController extends Controller
         $view = 'welcome';
         // debugbar
         config('app.env') === 'local' && Debugbar::info('Version:'.app('services')->getCurrentVersion());
+
         // return view
         return view($view);
     }

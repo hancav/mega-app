@@ -19,6 +19,7 @@ final class DashboardController extends Controller
         $view = 'templates.dashboard';
         // debugbar
         config('app.env') === 'local' && Debugbar::info($view);
+
         // return view
         return view($view);
     }

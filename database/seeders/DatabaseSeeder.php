@@ -35,6 +35,6 @@ final class DatabaseSeeder extends Seeder
             'email' => 'hugo@mail.com',
             'password' => Hash::make('password'),
         ]);
-        
+
     }
 }
