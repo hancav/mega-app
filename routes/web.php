@@ -14,6 +14,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 
 // new routes
 Route::view('/terms', 'terms')->name('terms');
+Route::view('/version', 'version')->name('version');
 Route::post('/profile/timezone', [TimezoneController::class, 'update'])->name('profile.timezone.update');
 
 Route::middleware('auth')->group(function () {
@@ -21,5 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
 
 require __DIR__.'/auth.php';

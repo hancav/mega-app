@@ -1,0 +1,1 @@
+(LAR v{{ Illuminate\Foundation\Application::VERSION }}) (PHP v{{ PHP_VERSION }}) (APP v.{{app('services')->getCurrentVersion()}}) 
