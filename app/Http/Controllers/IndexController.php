@@ -12,7 +12,7 @@ final class IndexController extends Controller
      * Home method
      *
      **/
-    public function index()
+    public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
     {
         // define view name
         $view = 'welcome';
