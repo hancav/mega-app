@@ -7,13 +7,13 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class ProtectStaging
+final class ProtectStaging
 {
     public function handle(Request $request, Closure $next)
     {
         if (config('app.env') === 'staging') {
-            if (!isset($_SERVER['PHP_AUTH_USER']) || 
-                $_SERVER['PHP_AUTH_USER'] !== config('app.staging_username') || 
+            if (! isset($_SERVER['PHP_AUTH_USER']) ||
+                $_SERVER['PHP_AUTH_USER'] !== config('app.staging_username') ||
                 $_SERVER['PHP_AUTH_PW'] !== config('app.staging_password')
             ) {
                 header('WWW-Authenticate: Basic realm="Staging Area"');
@@ -24,4 +24,4 @@ class ProtectStaging
 
         return $next($request);
     }
-} 
+}

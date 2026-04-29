@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->web([\App\Http\Middleware\ProtectStaging::class]);
+        $middleware->web([App\Http\Middleware\ProtectStaging::class]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
